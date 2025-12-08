@@ -3,7 +3,7 @@ import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws MessagingException {
-        String contraseñaAplicacion = "ulhs tcwb rvsu ftnz";
+        String contrasenaAplicacion = "ulhs tcwb rvsu ftnz";
 
         try {
             Properties props = new Properties();
@@ -14,14 +14,14 @@ public class Main {
 
             Session session = Session.getDefaultInstance(props, null);
             Store store = session.getStore("imap");
-            store.connect("gilgarrotejuanluis@gmail.com", contraseñaAplicacion);
+            store.connect("gilgarrotejuanluis@gmail.com", contrasenaAplicacion);
 
             Folder inbox = store.getFolder("INBOX");
             inbox.open(Folder.READ_ONLY);
 
             Message[] mensajes = inbox.getMessages();
-            for (Message mensaje : mensajes) {
-                System.out.println("Asunto: " + mensaje.getSubject());
+            for (int i = 0; i <= mensajes.length; i++) {
+                System.out.println("Asunto: " + mensajes[i].getSubject());
             }
 
             inbox.close();
